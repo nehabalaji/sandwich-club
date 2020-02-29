@@ -21,7 +21,7 @@ public class JsonUtils {
             String mainName = name.getString("mainName");
             JSONArray alsoKnownAs = name.getJSONArray("alsoKnownAs");
             List<String> alsoKnownas = new ArrayList<>();
-            for(int i=0; i<alsoKnownas.size(); i++){
+            for(int i=0; i<alsoKnownAs.length(); i++){
                 String s = alsoKnownAs.getString(i);
                 alsoKnownas.add(s);
             }
@@ -29,24 +29,24 @@ public class JsonUtils {
             String description = sandwichJson.getString("description");
             JSONArray ingredients = sandwichJson.getJSONArray("ingredients");
             List<String> ingredient = new ArrayList<>();
-            for(int j=0; j<ingredient.size(); j++){
+            for(int j=0; j<ingredients.length(); j++){
                 String i = ingredients.getString(j);
                 ingredient.add(i);
             }
-            String imageResID = name.getString("image");
+            String imageResID = sandwichJson.getString("image");
 
             sandwiches.setMainName(mainName);
             sandwiches.setAlsoKnownAs(alsoKnownas);
             sandwiches.setPlaceOfOrigin(placeOfOrigin);
             sandwiches.setDescription(description);
-            sandwiches.setIngredients(ingredient);
             sandwiches.setImage(imageResID);
-
+            sandwiches.setIngredients(ingredient);
 
 
         } catch (JSONException e) {
-            e.printStackTrace();
+            return null;
         }
         return sandwiches;
     }
+
 }

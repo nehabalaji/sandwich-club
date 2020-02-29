@@ -65,12 +65,12 @@ public class DetailActivity extends AppCompatActivity {
 
     private void populateUI(Sandwich sandwich) {
         List<String> alsoKnownAs = sandwich.getAlsoKnownAs();
-if(alsoKnownAs!=null) {
+
     for (int i = 0; i < alsoKnownAs.size(); i++) {
         if (i > 0) mAlsoKnownAs.append(", ");
         mAlsoKnownAs.append(alsoKnownAs.get(i));
     }
-}
+
         List<String> ingredients = sandwich.getIngredients();
         for(int j=0; j<ingredients.size(); j++){
             mIngredients.append(ingredients.get(j));
